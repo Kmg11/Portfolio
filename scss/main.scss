@@ -1,0 +1,190 @@
+// Start Import Sass Files
+
+@import '_config.scss';
+@import '_menu.scss';
+
+// End Import Sass Files
+// Start Global Rules
+
+* {box-sizing: border-box;}
+
+body {
+	@include background;
+	background: $primary-color;
+	background-size: cover;
+	color: set-text-color($primary-color);
+	margin: 0;
+	line-height: 1.8;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a {color: set-text-color($primary-color); text-decoration: none;}
+.text-secondary {color: $secndary-color;}
+
+// End Global Rules
+// Start Heading
+
+h1, h2, h3 {
+	margin: 0;
+	font-weight: 400;
+	&.lg-heading {font-size: 6rem;}
+	&.sm-heading {
+		margin-bottom: 2rem;
+		padding: 0.2rem 1rem;
+		background: rgba(lighten($primary-color, 2), 0.5);
+		font-size: 1.2rem;
+	}
+}
+
+// End Heading
+// Start Header
+
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	width: 100%;
+}
+
+// End Header
+// Start Main
+
+main {
+	padding: 4rem;
+	min-height: calc(100vh - 60px);
+
+	.icons {
+		margin-top: 1rem;
+		a {
+			padding: 0.4rem;
+			@include linear;
+			&:hover {color: $secndary-color;}
+		}
+	}
+	&#home {
+		margin-top: 10vh;
+		min-height: auto !important;
+		position: relative;
+	}
+}
+
+// End Main
+// Start About
+
+.about-info {
+	display: grid;
+	grid-gap: 30px;
+	grid-template-areas:
+	'bioimage bio bio'
+	'job1 job2 job3';
+	grid-template-columns: repeat(3, 1fr);
+
+	.bio-image {
+		grid-area: bioimage;
+		margin: auto;
+		border: 3px solid $secndary-color;
+		border-radius: 50%;
+	}
+
+	.bio {grid-area: bio; font-size: 1.5rem;}
+	.job-1 {grid-area: job1;}
+	.job-2 {grid-area: job2;}
+	.job-3 {grid-area: job3;}
+
+	.job {
+		background: lighten($primary-color, 5);
+		padding: 1.5rem;
+		border-bottom: 5px solid $secndary-color;
+	}
+}
+
+// End About
+// Start Work
+
+.projects {
+	display: grid;
+	grid-gap: 0.7rem;
+	grid-template-columns: repeat(4, 1fr);
+
+	img {
+		@include linear;
+		width: 100%;
+		border: 3px solid set-text-color($primary-color);
+
+		&:hover {
+			opacity: 0.5;
+			border-color: $secndary-color;
+		}
+	}
+}
+
+// End Work
+// Start Contact
+
+.boxes {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	align-items: center;
+	margin-top: 1rem;
+
+	div {
+		@include linear;
+		border: 3px solid set-text-color($primary-color);
+		padding: 1.5rem 2.5rem;
+		margin-bottom: 3rem;
+		font-size: 2rem;
+
+		&:hover {
+			padding: 0.5rem 1.5rem !important;
+			background-color: $secndary-color;
+			color: set-text-color($secndary-color);
+			span {color: set-text-color($secndary-color);}
+		}
+	}
+}
+
+// End Contact
+// Start Button Styles
+
+%btn {
+	display: block;
+	padding: 0.5rem 1rem;
+	border: 0;
+	margin-bottom: 0.3rem;
+	&:hover {
+		background: $secndary-color;
+		color: set-text-color($secndary-color);
+	}
+}
+
+.btn-light {
+	@extend %btn;
+	background: lighten($primary-color, 50);
+	color: #333;
+}
+
+.btn-dark {
+	@extend %btn;
+	background: darken($primary-color, 50);
+	color: #FFF;
+}
+
+// End Button Styles
+// Start Footer
+
+#main-footer {
+	text-align: center;
+	padding: 1.2rem;
+	background: darken($primary-color, 5);
+	color: set-text-color($primary-color);
+	height: 60px;
+}
+
+// End Footer
+// Start Import mobile.scss
+
+@import '_mobile.scss';
+
+// End Import mobile.scss

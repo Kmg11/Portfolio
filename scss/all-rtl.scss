@@ -1,0 +1,17 @@
+// Start Menu RTL
+
+.menu-btn {
+	right: auto;
+	left: 35px !important;
+	direction: ltr !important;
+}
+
+// End Menu Button
+// Start Menu Overlay
+
+.menu {
+	&-branding, &-nav {float: right;}
+	&-nav {.nav-item {transform: translate3d(-600px, 0, 0);}}
+}
+
+// End Menu Overlay

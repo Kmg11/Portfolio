@@ -1,0 +1,122 @@
+// Start Menu Button
+
+.menu-btn {
+	position: absolute;
+	z-index: 3;
+	top: 35px;
+	right: 35px;
+	cursor: pointer;
+	direction: rtl;
+	@include linear;
+	&:hover .btn-line {background-color: $secndary-color !important;}
+	.btn-line {
+		height: 3px;
+		background-color: set-text-color($primary-color);
+		margin: 5px;
+		@include linear;
+		&:first-child {width: 25px;}
+		&:nth-child(2) {width: 20px;}
+		&:last-child {width: 25px;}
+	}
+
+	// Rotate Into X With Menu Lines
+	&.close {
+		transform: rotate(180deg);
+		.btn-line {
+			background-color: $secndary-color;
+			width: 25px;
+			// Line 1 - Rotate
+			&:first-child {transform: rotate(45deg) translate(5px, 5px);}
+			// Line 2 - Hide
+			&:nth-child(2) {opacity: 0;}
+			// Line 3 - Rotate
+			&:last-child {transform: rotate(-45deg) translate(7px, -6px);}
+		}
+	}
+}
+
+// End Menu Button
+// Start Menu Overlay
+
+.menu {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	opacity: 0.9;
+	visibility: hidden;
+
+	&.show {visibility: visible;}
+
+	// Grouping Branding & Nav
+	&-branding, &-nav {
+		display: flex;
+		flex-flow: column wrap;
+		align-items: center;
+		justify-content: center;
+		float: left;
+		width: 50%;
+		height: 100vh;
+		overflow: hidden;
+	}
+
+	&-branding {
+		@include linear;
+		background-color: $primary-color;
+		transform: translate3d(0, 100%, 0);
+
+		// Slide In From Bottom
+		&.show {transform: translate3d(0, 0, 0);}
+
+		.portrait {
+			width: 250px;
+			height: 250px;
+			background: url('../img/portrait.jpg	');
+			border-radius: 50%;
+			border: 3px solid $secndary-color;
+		}
+	}
+
+	&-nav {
+		@include linear;
+		background-color: darken($primary-color, 8);
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		transform: translate3d(0, -100%, 0);
+
+		// Slide In Form Top
+		&.show {transform: translate3d(0, 0, 0);}
+
+		.nav-item {
+			@include linear;
+			transform: translate3d(600px, 0, 0);
+
+			&.show {
+				// Slide In From Right
+				transform: translate3d(0, 0, 0);
+			}
+
+			@for $x from 1 through 4 {
+				&:nth-child(#{$x}) {
+					transition-delay: $x * 0.1s;
+				}
+			}
+			
+			.nav-link {
+				display: inline-block;
+				position: relative;
+				font-size: 2rem;
+				text-transform: uppercase;
+				font-weight: 400;
+				color: set-text-color($primary-color);
+				text-decoration: none;
+				line-height: 2.5;
+				@include linear;
+				&:hover {transform: scale(1.2); color: $secndary-color;}
+			}
+			&.current > a {color: $secndary-color;}
+		}
+	}
+}
+
+// End Menu Overlay

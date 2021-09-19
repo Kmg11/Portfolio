@@ -1,0 +1,14 @@
+.menu-btn {
+  right: auto;
+  left: 35px !important;
+  direction: ltr !important;
+}
+
+.menu-branding, .menu-nav {
+  float: right;
+}
+.menu-nav .nav-item {
+  transform: translate3d(-600px, 0, 0);
+}
+
+/*# sourceMappingURL=all-rtl.css.map */

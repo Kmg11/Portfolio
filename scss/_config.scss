@@ -1,0 +1,77 @@
+// Start Variables
+
+// Colors
+$primary-color: #121212; // #fff - #444
+$secndary-color: hsl(271, 100%, 63%); // #eece1a
+
+// Body Background
+$show-home-image: true;
+$home-image: url(../img/background.jpg);
+$background-opacity: 0.9;
+
+// End Vaiabler
+// Start Mixins
+
+// Transition Mixin
+@mixin linear {transition: all 0.3s linear;}
+
+// Background Mixin
+@mixin background {
+	@if $show-home-image {
+		&#bg-img {
+			background: $home-image;
+			background-attachment: fixed;
+			background-size: cover;
+			&::after {
+				content: '';
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba($primary-color, $background-opacity);
+				z-index: -1;
+			}
+		}
+	}
+}
+
+// Set Text Color
+@function set-text-color($color) {
+	@if (lightness($color) > 40) {
+		@return #000;
+	} @else {
+		@return #fff;
+	}
+}
+
+// Medi Query Mixin
+// Small Media
+@mixin mediaSm {
+	@media screen and (max-width: 500px) {
+		@content;
+	}
+}
+
+// Mediaum Media
+@mixin mediaMd {
+	@media screen and (max-width: 768px) {
+		@content;
+	}
+}
+
+// Large Media
+@mixin mediaLg {
+	@media screen and (min-width: 769px) and (max-width: 1170px) {
+		@content;
+	}
+}
+
+// Extra Large Media
+@mixin mediaXl {
+	@media screen and (min-width: 1171px) {
+		@content;
+	}
+}
+
+// End Mixins
