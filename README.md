@@ -8,8 +8,9 @@ Multi Page responsive portfolio with simple and modern design.
 
 ### Links
 
-- [Github]( "Github Repo")
-- [Live]( "Live Preview")
+- [Github](https://github.com/Kmg11/Portfolio "Github Repo")
+- [Live English](https://kmg11.github.io/Portfolio/dist/index.html "Live Preview English")
+- [Live Arabic](https://kmg11.github.io/Portfolio/dist/index-rtl.html "Live Preview Arabic")
 
 ---
 
